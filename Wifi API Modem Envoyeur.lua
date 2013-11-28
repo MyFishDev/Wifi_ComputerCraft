@@ -1,16 +1,10 @@
 -- side doit etre remplace par le cote sur lequel est place le modem
--- ID doit etre remplace par l'id du l'ordi sur lequel va etre envoye le message
+-- freq doit etre remplace par la frequence sur laquelle envoyer le message
+-- rfreq doit etre remplace par le frequence sur laquelle on veut etre repondue
 -- message doit etre remplace par le message a envoyer
-rednet.open("side")
-rednet.send(ID,"message")
+local modem = peripheral.wrap("side")
+modem.transmit(freq, rfreq, "message")
 -- OU
-rednet.open("side")
-texte = read()
-rednet.send(ID,texte)
--- OU pour envoyer a tous les PC a moins de 64 blocks
-rednet.open("side")
-rednet.broadcast("message")
--- OU
-rednet.open("side")
-texte = read()
-rednet.broadcast(texte)
+local modem = peripheral.wrap("side")
+message = read()
+modem.transmit(freq, rfreq, texte)
