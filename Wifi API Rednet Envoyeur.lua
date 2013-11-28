@@ -7,3 +7,10 @@ rednet.send(ID,"message")
 rednet.open("side")
 texte = read()
 rednet.send(ID,texte)
+-- OU pour envoyer a tous les PC a moins de 64 blocks
+rednet.open("side")
+rednet.broadcast("message")
+-- OU
+rednet.open("side")
+texte = read()
+rednet.broadcast(texte)
